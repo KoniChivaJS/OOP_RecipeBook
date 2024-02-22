@@ -19,16 +19,28 @@ void RecipeBook::getDishes() const{
     cin>>choice;
     switch (choice) {
         case 1:
+            if(drinks.empty()){
+                cout<<"No dishes in drink category"<<endl;
+                break;
+            }
             for(const auto & drink : drinks){
                 drink.getDish();
             }
             break;
         case 2:
+            if(food.empty()){
+                cout<<"No dishes in food category"<<endl;
+                break;
+            }
             for(const auto & i : food){
                 i.getDish();
             }
             break;
         case 3:
+            if(food.empty() && drinks.empty()){
+                cout<<"No dishes in Recipe Book"<<endl;
+                break;
+            }
             for(const auto & drink : drinks){
                 drink.getDish();
             }
@@ -57,6 +69,6 @@ void RecipeBook::setDish(string &setName,string &newType,
     }
 }
 
-RecipeBook::RecipeBook(string newName, int newPrice, vector<Dish> newDrinks, vector<Dish> newFood):
-    name{std::move(newName)},price{newPrice}, drinks{std::move(newDrinks)}, food{std::move(newFood)} {}
+RecipeBook::RecipeBook(string newName, vector<Dish> newDrinks, vector<Dish> newFood):
+    name{std::move(newName)}, drinks{std::move(newDrinks)}, food{std::move(newFood)} {}
 

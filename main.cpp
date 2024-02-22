@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Dish.h"
 #include "RecipeBook.h"
+#include "PopularRecipeBooks.h"
 #include <string>
 using namespace std;
 
@@ -26,14 +27,25 @@ void makeNewDish(RecipeBook &HowToCook){
 }
 
 int main() {
-    RecipeBook HowToCook("HowToCook",999,{});
+    RecipeBook HowToCook("HowToCook",{});
+    PopularRecipeBooks allRecipes("100BooksList",99,false,
+                                 {"La Pizzas - `link`","Baguettes - `link`","National Dishes - `link`","100 Types of pasta - `link`"},
+                                 "Antonio Prip.");
+
     while (true){
         int choice = 0;
-        cout<<"\nWelcome to RecipeBook"<<endl;
+        cout<<"\n\nWelcome to RecipeBook"<<endl;
 
         cout<<"1: Make New Dish"<<endl;
         cout<<"2: Get dishes"<<endl;
-        cout<<"3: Exit"<<endl;
+
+        if(allRecipes.isRecipesBought()){
+            cout<<"3: Show Popular Recipes"<<endl;
+        }else{
+            cout<<"3: Buy Popular Recipe Books"<<endl;
+        }
+
+        cout<<"4: Exit"<<endl;
 
         cout<<"Choose option: ";
         cin>>choice;
@@ -42,6 +54,12 @@ int main() {
         }else if(choice == 2){
             HowToCook.getDishes();
         }else if(choice == 3){
+            if(allRecipes.isRecipesBought()){
+                allRecipes.getBooks();
+            }else{
+                allRecipes.actionBuyBook();
+            }
+        }else if(choice == 4){
             break;
         }
 

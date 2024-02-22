@@ -11,7 +11,6 @@ using namespace std;
 class RecipeBook {
 private:
     string name;
-    int price;
     vector<Dish> drinks;
     vector<Dish> food;
 public:
@@ -19,10 +18,9 @@ public:
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
-    RecipeBook(string newName = "Unknown",
-               int newPrice = 0,
-               vector<Dish> drinks = {},
-               vector<Dish> food = {});
+        RecipeBook(string newName = "Unknown",
+                   vector<Dish> drinks = {},
+                   vector<Dish> food = {});
 };
 
 
