@@ -2,7 +2,6 @@
 #include "Dish.h"
 #include "RecipeBook.h"
 #include <string>
-#include <vector>
 using namespace std;
 
 void makeNewDish(RecipeBook &HowToCook){
@@ -11,7 +10,7 @@ void makeNewDish(RecipeBook &HowToCook){
     cout<<"Enter name: ";
     cin>>name;
 
-    cout<<"Enter type of food: ";
+    cout<<"Enter type of food (drink,food) : ";
     cin>>type;
 
     cout<<"Enter Author: ";
@@ -23,7 +22,6 @@ void makeNewDish(RecipeBook &HowToCook){
     cout<<"Enter ingredients: ";
     cin>>ingredients;
     HowToCook.setDish(name,type,author,recipe,ingredients);
-
 
 }
 

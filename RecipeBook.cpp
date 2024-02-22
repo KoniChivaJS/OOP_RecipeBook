@@ -4,9 +4,11 @@
 
 #include "RecipeBook.h"
 #include "Dish.h"
+#include <utility>
 #include <vector>
 #include <iostream>
 using namespace std;
+
 
 void RecipeBook::getDishes() const{
     int choice = 0;
@@ -17,21 +19,21 @@ void RecipeBook::getDishes() const{
     cin>>choice;
     switch (choice) {
         case 1:
-            for(int i = 0; i<drinks.size();++i){
-                drinks[i].getDish();
+            for(const auto & drink : drinks){
+                drink.getDish();
             }
             break;
         case 2:
-            for(int i = 0; i<food.size();++i){
-                food[i].getDish();
+            for(const auto & i : food){
+                i.getDish();
             }
             break;
         case 3:
-            for(int i = 0; i<drinks.size();++i){
-                drinks[i].getDish();
+            for(const auto & drink : drinks){
+                drink.getDish();
             }
-            for(int i = 0; i<food.size();++i){
-                food[i].getDish();
+            for(const auto & i : food){
+                i.getDish();
             }
             break;
         default:
@@ -56,5 +58,5 @@ void RecipeBook::setDish(string &setName,string &newType,
 }
 
 RecipeBook::RecipeBook(string newName, int newPrice, vector<Dish> newDrinks, vector<Dish> newFood):
-    name{newName},price{newPrice}, drinks{newDrinks}, food{newFood} {}
+    name{std::move(newName)},price{newPrice}, drinks{std::move(newDrinks)}, food{std::move(newFood)} {}
 

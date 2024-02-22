@@ -5,6 +5,7 @@
 #include "Dish.h"
 #include <iostream>
 #include <string>
+#include <utility>
 
 using namespace std;
 void Dish::getDish() const{
@@ -15,6 +16,6 @@ void Dish::getDish() const{
     <<"\nIngredients: "<<ingredients<<endl;
 }
 Dish::Dish(string newName, string newType, string newAuthor, string newRecipe,
-           string newIngredients):name{newName}, type{newType}, author{newAuthor},recipe{newRecipe}, ingredients{newIngredients} {}
+           string newIngredients):name{std::move(newName)}, type{std::move(newType)}, author{std::move(newAuthor)},recipe{std::move(newRecipe)}, ingredients{std::move(newIngredients)} {}
 
 
