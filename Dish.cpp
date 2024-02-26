@@ -18,4 +18,6 @@ void Dish::getDish() const{
 Dish::Dish(string newName, string newType, string newAuthor, string newRecipe,
            string newIngredients):name{std::move(newName)}, type{std::move(newType)}, author{std::move(newAuthor)},recipe{std::move(newRecipe)}, ingredients{std::move(newIngredients)} {}
 
+Dish::~Dish() {}
+
 

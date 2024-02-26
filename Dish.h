@@ -18,6 +18,7 @@ public:
     Dish(string newName="None",string newType="Unknown",
          string newAuthor="None", string newRecipe="Unknown",
          string newIngredients="None");
+    ~Dish();
 };
 
 

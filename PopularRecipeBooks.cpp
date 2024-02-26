@@ -36,10 +36,23 @@ void PopularRecipeBooks::actionBuyBook() {
 
 }
 void PopularRecipeBooks::getBooks() const {
+    cout<<endl;
     for(const auto & book : books){
         cout<<book<<endl;
     }
 }
 
-PopularRecipeBooks::PopularRecipeBooks(string newName,int newPrice, bool boughtStatus ,vector<string> newBooks, string newAuthor):
-        name{std::move(newName)},price {newPrice}, isBought{boughtStatus} , books{std::move(newBooks)}, author{std::move(newAuthor)} {}
+//PopularRecipeBooks::PopularRecipeBooks(string newName,int newPrice, bool boughtStatus ,vector<string> newBooks, string newAuthor):
+//        name{std::move(newName)},price {newPrice}, isBought{boughtStatus} , books{std::move(newBooks)}, author{std::move(newAuthor)} {}
+
+PopularRecipeBooks::PopularRecipeBooks()
+        :name{"Unknown"}, price{0}, isBought{false}, books{{}},author{"None"} {}
+PopularRecipeBooks::PopularRecipeBooks(string newName, int newPrice,bool boughtStatus)
+        :name{newName}, price{newPrice}, isBought{boughtStatus}, books{{}},author{"None"} {}
+PopularRecipeBooks::PopularRecipeBooks(string newName, int newPrice,bool boughtStatus,vector<string> newBooks, string newAuthor)
+        :name{newName}, price{newPrice}, isBought{boughtStatus}, books{newBooks},author{newAuthor} {}
+
+PopularRecipeBooks::~PopularRecipeBooks() {
+
+}
+

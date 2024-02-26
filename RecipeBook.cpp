@@ -72,3 +72,7 @@ void RecipeBook::setDish(string &setName,string &newType,
 RecipeBook::RecipeBook(string newName, vector<Dish> newDrinks, vector<Dish> newFood):
     name{std::move(newName)}, drinks{std::move(newDrinks)}, food{std::move(newFood)} {}
 
+RecipeBook::~RecipeBook() {
+
+}
+

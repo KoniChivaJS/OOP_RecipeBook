@@ -18,11 +18,15 @@ public:
     void getBooks() const;
     bool isRecipesBought() const;
     void actionBuyBook();
-    PopularRecipeBooks(string newName = "Unknown",
-            int newPrice = 0,
-            bool boughtStatus = false,
-            vector<string> newBooks={},
-            string newAuthor = "Unknown");
+//    PopularRecipeBooks(string newName = "Unknown",
+//            int newPrice = 0,
+//            bool boughtStatus = false,
+//            vector<string> newBooks={},
+//            string newAuthor = "Unknown");
+    PopularRecipeBooks();
+    PopularRecipeBooks(string newName,int newPrice,bool boughtStatus);
+    PopularRecipeBooks(string newName,int newPrice,bool boughtStatus, vector<string> newBooks, string newAuthor);
+    ~PopularRecipeBooks();
 
 };
 

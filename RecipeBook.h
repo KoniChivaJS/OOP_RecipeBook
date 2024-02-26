@@ -21,6 +21,7 @@ public:
         RecipeBook(string newName = "Unknown",
                    vector<Dish> drinks = {},
                    vector<Dish> food = {});
+    ~RecipeBook();
 };
 
 
