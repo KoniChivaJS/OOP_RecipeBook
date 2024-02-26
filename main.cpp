@@ -26,7 +26,54 @@ void makeNewDish(RecipeBook &HowToCook){
 
 }
 
+class MoveExample {
+private:
+    int *data;
+    int size;
+public:
+    MoveExample(int size){
+        this->data = new int[size];
+        this->size = size;
+        for(int i = 0 ; i<size;i++){
+            data[i] = i;
+        }
+        ShowData();
+    };
+    void ShowData(){
+        for(int i = 0 ; i<size;i++){
+            cout<<data[i]<<" ";
+        }
+        cout<<endl;
+        if(data == nullptr){
+            cout<<"Data in classCopy: nullptr";
+        }
+    }
+    MoveExample(const MoveExample& other){
+        this->size=other.size;
+        data = new int;
+        for(int i = 0; i < this->size; ++i){
+            this->data[i] = other.data[i];
+        }
+    }
+    MoveExample(MoveExample&& other)
+        :data(other.data),size(other.size)
+    {
+        other.data = nullptr;
+        other.size = 0;
+    }
+    ~MoveExample(){
+        cout<<"Destructor was called";
+        delete[] data;
+    }
+};
+
+
 int main() {
+    MoveExample classCopy(5);
+    MoveExample secondCopy = move(classCopy);
+    secondCopy.ShowData();
+    classCopy.ShowData();
+
     RecipeBook HowToCook("HowToCook",{});
     PopularRecipeBooks allRecipes("100BooksList",99,false,
                                  {"La Pizzas - `link`","Baguettes - `link`","National Dishes - `link`","100 Types of pasta - `link`"},
