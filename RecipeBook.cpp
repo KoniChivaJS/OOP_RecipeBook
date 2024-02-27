@@ -9,6 +9,12 @@
 #include <iostream>
 using namespace std;
 
+string RecipeBook::getName() {
+    return this->name;
+}
+void RecipeBook::setName(string &name) {
+    this->name = name;
+}
 
 void RecipeBook::getDishes() const{
     int choice = 0;
@@ -76,3 +82,31 @@ RecipeBook::~RecipeBook() {
 
 }
 
+RecipeBook::RecipeBook(const RecipeBook &other)
+    :name(other.name), drinks(other.drinks), food(other.food){}
+
+RecipeBook::RecipeBook(RecipeBook &&other)
+    :name(other.name), drinks(other.drinks), food(other.food) {
+    other.name = "Unknown";
+    other.drinks = {};
+    other.food = {};
+}
+
+RecipeBook &RecipeBook::operator=(RecipeBook &other) {
+    if(this == &other){
+        return *this;
+    }
+    this->food = other.food;
+    this->drinks = other.drinks;
+    return *this;
+}
+
+bool RecipeBook::operator==(RecipeBook &other) {
+    if(this->name == other.name
+       && this->drinks.size() == other.drinks.size()
+       && this->food.size() == other.food.size()){
+        return true;
+    }
+    return false;
+
+}

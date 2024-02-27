@@ -15,12 +15,18 @@ private:
     vector<Dish> food;
 public:
     void getDishes() const;
+    string getName();
+    void setName(string &name);
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
-        RecipeBook(string newName = "Unknown",
-                   vector<Dish> drinks = {},
-                   vector<Dish> food = {});
+    RecipeBook(const RecipeBook& other);
+    RecipeBook(RecipeBook&& other);
+    RecipeBook& operator = (RecipeBook& other);
+    bool operator ==(RecipeBook& other);
+    RecipeBook(string newName = "Unknown",
+               vector<Dish> drinks = {},
+               vector<Dish> food = {});
     ~RecipeBook();
 };
 

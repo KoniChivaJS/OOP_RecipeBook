@@ -26,62 +26,25 @@ void makeNewDish(RecipeBook &HowToCook){
 
 }
 
-class MoveExample {
+class Math{
 private:
-    int *data;
-    int size;
+    int a;
+    int b;
 public:
-    MoveExample(int size){
-        this->data = new int[size];
-        this->size = size;
-        for(int i = 0 ; i<size;i++){
-            data[i] = i;
-        }
-        ShowData();
-    };
-    void ShowData(){
-        for(int i = 0 ; i<size;i++){
-            cout<<data[i]<<" ";
-        }
-        cout<<endl;
-        if(data == nullptr){
-            cout<<"Data in classCopy: nullptr";
-        }
-    }
-    MoveExample(const MoveExample& other){
-        this->size=other.size;
-        data = new int;
-        for(int i = 0; i < this->size; ++i){
-            this->data[i] = other.data[i];
-        }
-    }
-    MoveExample(MoveExample&& other)
-        :data(other.data),size(other.size)
-    {
-        other.data = nullptr;
-        other.size = 0;
-    }
-    ~MoveExample(){
-        cout<<"Destructor was called";
-        delete[] data;
+    static int addNum(int a,int b){
+        return a + b;
     }
 };
-
-
 int main() {
-    MoveExample classCopy(5);
-    MoveExample secondCopy = move(classCopy);
-    secondCopy.ShowData();
-    classCopy.ShowData();
-
     RecipeBook HowToCook("HowToCook",{});
+    RecipeBook CopyBook(HowToCook);
     PopularRecipeBooks allRecipes("100BooksList",99,false,
                                  {"La Pizzas - `link`","Baguettes - `link`","National Dishes - `link`","100 Types of pasta - `link`"},
                                  "Antonio Prip.");
 
     while (true){
         int choice = 0;
-        cout<<"\n\nWelcome to RecipeBook"<<endl;
+        cout<<"\n\nWelcome to "<<HowToCook.getName()<<endl;
 
         cout<<"1: Make New Dish"<<endl;
         cout<<"2: Get dishes"<<endl;
@@ -91,8 +54,11 @@ int main() {
         }else{
             cout<<"3: Buy Popular Recipe Books"<<endl;
         }
-
-        cout<<"4: Exit"<<endl;
+        cout<<"4: Change name of RecipeBook"<<endl;
+        cout<<"5: Make Copy RecipeBook"<<endl;
+        cout<<"6: Show Copy RecipeBook"<<endl;
+        cout<<"7: Compare RecipeBooks"<<endl;
+        cout<<"8: Exit"<<endl;
 
         cout<<"Choose option: ";
         cin>>choice;
@@ -107,13 +73,30 @@ int main() {
                 allRecipes.actionBuyBook();
             }
         }else if(choice == 4){
+            string newName;
+            cout<<"Enter new name: ";
+            cin>>newName;
+            HowToCook.setName(newName);
+        }else if(choice == 5){
+            CopyBook = HowToCook;
+        }else if(choice == 6){
+            CopyBook.getDishes();
+        }
+        else if(choice == 7){
+            bool res = CopyBook == HowToCook;
+            if(res){
+                cout<<"The Books are Similar"<<endl;
+            }else{
+                cout<<"The Books are Diffetent"<<endl;
+            }
+        }else if(choice == 8){
             break;
         }
 
 
     }
 
-
+    cout<<Math:addNum(1,2);
 
     return 0;
 }

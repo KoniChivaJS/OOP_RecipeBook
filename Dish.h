@@ -8,13 +8,13 @@
 using namespace std;
 class Dish {
 private:
-    string name;
-    string type;
-    string author;
-    string recipe;
-    string ingredients;
+     string name;
+     string type;
+     string author;
+     string recipe;
+     string ingredients;
 public:
-    void getDish() const;
+    void getDish() const ;
     Dish(string newName="None",string newType="Unknown",
          string newAuthor="None", string newRecipe="Unknown",
          string newIngredients="None");
