@@ -24,6 +24,9 @@ public:
     RecipeBook(RecipeBook&& other);
     RecipeBook& operator = (RecipeBook& other);
     bool operator ==(RecipeBook& other);
+    friend ostream &operator << (ostream &output,RecipeBook &p);
+    friend istream &operator >> (istream &input, RecipeBook &p);
+
     RecipeBook(string newName = "Unknown",
                vector<Dish> drinks = {},
                vector<Dish> food = {});

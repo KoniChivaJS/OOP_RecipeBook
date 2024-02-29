@@ -110,3 +110,13 @@ bool RecipeBook::operator==(RecipeBook &other) {
     return false;
 
 }
+
+ostream &operator<<(ostream &output, RecipeBook &p) {
+    output<<"Welcome to "<<p.name<<endl;
+    return output;
+}
+
+istream &operator>>(istream &input, RecipeBook &p) {
+    input >> p.name;
+    return input;
+}

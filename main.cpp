@@ -26,15 +26,7 @@ void makeNewDish(RecipeBook &HowToCook){
 
 }
 
-class Math{
-private:
-    int a;
-    int b;
-public:
-    static int addNum(int a,int b){
-        return a + b;
-    }
-};
+
 int main() {
     RecipeBook HowToCook("HowToCook",{});
     RecipeBook CopyBook(HowToCook);
@@ -44,7 +36,7 @@ int main() {
 
     while (true){
         int choice = 0;
-        cout<<"\n\nWelcome to "<<HowToCook.getName()<<endl;
+        cout<<HowToCook<<endl;
 
         cout<<"1: Make New Dish"<<endl;
         cout<<"2: Get dishes"<<endl;
@@ -73,10 +65,8 @@ int main() {
                 allRecipes.actionBuyBook();
             }
         }else if(choice == 4){
-            string newName;
             cout<<"Enter new name: ";
-            cin>>newName;
-            HowToCook.setName(newName);
+            cin >> HowToCook;
         }else if(choice == 5){
             CopyBook = HowToCook;
         }else if(choice == 6){
@@ -95,8 +85,5 @@ int main() {
 
 
     }
-
-    cout<<Math:addNum(1,2);
-
     return 0;
 }
