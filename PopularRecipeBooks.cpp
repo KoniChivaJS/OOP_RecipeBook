@@ -17,8 +17,8 @@ bool PopularRecipeBooks::isRecipesBought() const {
 }
 void PopularRecipeBooks::actionBuyBook() {
     int choice;
-    cout<<"\nHi! Do you want to buy my book? (by "<<author<<" )";
-    cout<<"\nI`ll cost: "<<price<<" грн. "<<endl;
+    cout<<"\nHi! Do you want to buy my book? (by "<<getAuthor()<<" )";
+    cout<<"\nI`ll cost: "<<getPrice()<<" грн. "<<endl;
     cout<<"\nSubmit purchase: (0 - leave it, 1 - buy): ";
     cin>>choice;
     switch (choice) {
@@ -42,17 +42,9 @@ void PopularRecipeBooks::getBooks() const {
     }
 }
 
-//PopularRecipeBooks::PopularRecipeBooks(string newName,int newPrice, bool boughtStatus ,vector<string> newBooks, string newAuthor):
-//        name{std::move(newName)},price {newPrice}, isBought{boughtStatus} , books{std::move(newBooks)}, author{std::move(newAuthor)} {}
-
-PopularRecipeBooks::PopularRecipeBooks()
-        :name{"Unknown"}, price{0}, isBought{false}, books{{}},author{"None"} {}
-PopularRecipeBooks::PopularRecipeBooks(string newName, int newPrice,bool boughtStatus)
-        :name{newName}, price{newPrice}, isBought{boughtStatus}, books{{}},author{"None"} {}
-PopularRecipeBooks::PopularRecipeBooks(string newName, int newPrice,bool boughtStatus,vector<string> newBooks, string newAuthor)
-        :name{newName}, price{newPrice}, isBought{boughtStatus}, books{newBooks},author{newAuthor} {}
+PopularRecipeBooks::PopularRecipeBooks(string newName,int newPrice, bool boughtStatus ,vector<string> newBooks, string newAuthor)
+    : RecipeBook(newName,newAuthor,newPrice), isBought(boughtStatus), books(newBooks) {}
 
 PopularRecipeBooks::~PopularRecipeBooks() {
 
 }
-

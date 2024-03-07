@@ -6,26 +6,21 @@
 #define LAB2_1_POPULARRECIPEBOOKS_H
 #include <string>
 #include <vector>
+#include "RecipeBook.h"
 using namespace std;
-class PopularRecipeBooks {
+class PopularRecipeBooks : public RecipeBook{
 private:
-    string name;
-    int price;
     bool isBought;
     vector<string> books;
-    string author;
 public:
     void getBooks() const;
     bool isRecipesBought() const;
     void actionBuyBook();
-//    PopularRecipeBooks(string newName = "Unknown",
-//            int newPrice = 0,
-//            bool boughtStatus = false,
-//            vector<string> newBooks={},
-//            string newAuthor = "Unknown");
-    PopularRecipeBooks();
-    PopularRecipeBooks(string newName,int newPrice,bool boughtStatus);
-    PopularRecipeBooks(string newName,int newPrice,bool boughtStatus, vector<string> newBooks, string newAuthor);
+    PopularRecipeBooks(string newName = "Unknown",
+            int newPrice = 0,
+            bool boughtStatus = false,
+            vector<string> newBooks={},
+            string newAuthor = "Unknown");
     ~PopularRecipeBooks();
 
 };
