@@ -21,7 +21,7 @@ public:
                  string &author, string &recipe,
                  string &ingredients);
     RecipeBook(const RecipeBook& other);
-    RecipeBook(RecipeBook&& other);
+    RecipeBook(RecipeBook&& other) noexcept ;
     RecipeBook& operator = (RecipeBook& other);
     bool operator ==(RecipeBook& other);
     friend ostream &operator << (ostream &output,RecipeBook &p);

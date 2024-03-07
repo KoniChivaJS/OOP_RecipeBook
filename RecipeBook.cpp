@@ -85,7 +85,7 @@ RecipeBook::~RecipeBook() {
 RecipeBook::RecipeBook(const RecipeBook &other)
     :name(other.name), drinks(other.drinks), food(other.food){}
 
-RecipeBook::RecipeBook(RecipeBook &&other)
+RecipeBook::RecipeBook(RecipeBook &&other) noexcept
     :name(other.name), drinks(other.drinks), food(other.food) {
     other.name = "Unknown";
     other.drinks = {};
