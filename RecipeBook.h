@@ -4,10 +4,22 @@
 
 #ifndef LAB2_1_RECIPEBOOK_H
 #define LAB2_1_RECIPEBOOK_H
-
-
+#include <string>
+#include <vector>
+using namespace std;
 class RecipeBook {
+private:
+    string name;
+    string author;
+    int price;
+public:
+    RecipeBook(string& newName,string& newAuthor,int newPrice);
 
+    string getName() const;
+    void setName(string& name);
+    int getPrice() const;
+    void setPrice(int price);
+    RecipeBook& operator = (RecipeBook &other);
 };
 
 

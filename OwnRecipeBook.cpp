@@ -85,12 +85,6 @@ OwnRecipeBook::~OwnRecipeBook() {
 OwnRecipeBook::OwnRecipeBook(const OwnRecipeBook &other)
     :name(other.name), drinks(other.drinks), food(other.food){}
 
-OwnRecipeBook::OwnRecipeBook(OwnRecipeBook &&other) noexcept
-    :name(other.name), drinks(other.drinks), food(other.food) {
-    other.name = "Unknown";
-    other.drinks = {};
-    other.food = {};
-}
 
 OwnRecipeBook &OwnRecipeBook::operator=(OwnRecipeBook &other) {
     if(this == &other){

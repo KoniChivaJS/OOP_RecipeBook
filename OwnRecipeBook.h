@@ -17,11 +17,12 @@ public:
     void getDishes() const;
     string getName();
     void setName(string &name);
+
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
+
     OwnRecipeBook(const OwnRecipeBook& other);
-    OwnRecipeBook(OwnRecipeBook&& other) noexcept ;
     OwnRecipeBook& operator = (OwnRecipeBook& other);
     bool operator ==(OwnRecipeBook& other);
     friend ostream &operator << (ostream &output, OwnRecipeBook &p);
