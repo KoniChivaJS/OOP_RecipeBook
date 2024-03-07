@@ -69,6 +69,11 @@ void OwnRecipeBook::setDish(string &setName, string &newType,
         cout<<"\nCategory not found. Error"<<endl;
     }
 }
+void OwnRecipeBook::showInfo() const {
+    cout<<"Name: "<<getName()<<endl;
+    cout<<"Author: "<<getAuthor()<<endl;
+    cout<<"Price: "<<getPrice()<<endl;
+}
 
 OwnRecipeBook::OwnRecipeBook(string newName, vector<Dish> newDrinks, vector<Dish> newFood, string newAuthor,int newPrice)
     : RecipeBook(newName,newAuthor,newPrice), food(newFood), drinks(newDrinks){}
@@ -104,3 +109,4 @@ OwnRecipeBook::OwnRecipeBook(OwnRecipeBook &other)
     : RecipeBook(other), drinks(other.drinks),food(other.food){
 
 }
+

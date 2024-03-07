@@ -19,6 +19,7 @@ public:
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
+    void showInfo()const;
     OwnRecipeBook(OwnRecipeBook& other);
     OwnRecipeBook& operator = (OwnRecipeBook& other);
     bool operator ==(OwnRecipeBook& other);
