@@ -20,6 +20,7 @@ public:
     int getPrice() const;
     void setPrice(int price);
     RecipeBook& operator = (RecipeBook &other);
+    ~RecipeBook();
 };
 
 

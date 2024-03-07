@@ -9,12 +9,7 @@
 #include <iostream>
 using namespace std;
 
-string OwnRecipeBook::getName() {
-    return this->name;
-}
-void OwnRecipeBook::setName(string &name) {
-    this->name = name;
-}
+
 
 void OwnRecipeBook::getDishes() const{
     int choice = 0;
@@ -75,28 +70,23 @@ void OwnRecipeBook::setDish(string &setName, string &newType,
     }
 }
 
-OwnRecipeBook::OwnRecipeBook(string newName, vector<Dish> newDrinks, vector<Dish> newFood):
-    name{std::move(newName)}, drinks{std::move(newDrinks)}, food{std::move(newFood)} {}
+OwnRecipeBook::OwnRecipeBook(string newName, vector<Dish> newDrinks, vector<Dish> newFood, string newAuthor,int newPrice)
+    : RecipeBook(newName,newAuthor,newPrice), food(newFood), drinks(newDrinks){}
 
-OwnRecipeBook::~OwnRecipeBook() {
-
-}
-
-OwnRecipeBook::OwnRecipeBook(const OwnRecipeBook &other)
-    :name(other.name), drinks(other.drinks), food(other.food){}
-
+OwnRecipeBook::~OwnRecipeBook() {}
 
 OwnRecipeBook &OwnRecipeBook::operator=(OwnRecipeBook &other) {
     if(this == &other){
         return *this;
     }
+    RecipeBook::operator=(other);
     this->food = other.food;
     this->drinks = other.drinks;
     return *this;
 }
 
 bool OwnRecipeBook::operator==(OwnRecipeBook &other) {
-    if(this->name == other.name
+    if(getName() == other.getName()
        && this->drinks.size() == other.drinks.size()
        && this->food.size() == other.food.size()){
         return true;
@@ -106,11 +96,6 @@ bool OwnRecipeBook::operator==(OwnRecipeBook &other) {
 }
 
 ostream &operator<<(ostream &output, OwnRecipeBook &p) {
-    output<<"Welcome to "<<p.name<<endl;
+    output<<"\nWelcome to "<<p.getName()<<endl;
     return output;
-}
-
-istream &operator>>(istream &input, OwnRecipeBook &p) {
-    input >> p.name;
-    return input;
 }

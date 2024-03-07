@@ -32,3 +32,7 @@ RecipeBook &RecipeBook::operator=(RecipeBook &other) {
     this->price = other.price;
     return *this;
 }
+
+RecipeBook::~RecipeBook() {
+
+}

@@ -7,30 +7,28 @@
 #include <string>
 #include <vector>
 #include "Dish.h"
+#include "RecipeBook.h"
 using namespace std;
-class OwnRecipeBook {
+class OwnRecipeBook : public RecipeBook{
 private:
-    string name;
     vector<Dish> drinks;
     vector<Dish> food;
 public:
     void getDishes() const;
-    string getName();
-    void setName(string &name);
 
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
 
-    OwnRecipeBook(const OwnRecipeBook& other);
     OwnRecipeBook& operator = (OwnRecipeBook& other);
     bool operator ==(OwnRecipeBook& other);
     friend ostream &operator << (ostream &output, OwnRecipeBook &p);
-    friend istream &operator >> (istream &input, OwnRecipeBook &p);
 
     OwnRecipeBook(string newName = "Unknown",
                   vector<Dish> drinks = {},
-                  vector<Dish> food = {});
+                  vector<Dish> food = {},
+                  string newAuthor = "Unknown",
+                  int newPrice = 0);
     ~OwnRecipeBook();
 };
 

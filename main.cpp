@@ -25,7 +25,12 @@ void makeNewDish(OwnRecipeBook &HowToCook){
     HowToCook.setDish(name,type,author,recipe,ingredients);
 
 }
-
+void setNameToBook(OwnRecipeBook& HowToCook){
+    string newName;
+    cout<<"Enter new name: ";
+    cin >> newName;
+    HowToCook.setName(newName);
+}
 
 int main() {
     OwnRecipeBook HowToCook("HowToCook", {});
@@ -39,8 +44,8 @@ int main() {
         cout<<HowToCook<<endl;
         cout<<"1: Make New Dish"
               "\n2: Get dishes";
-        allRecipes.isRecipesBought() ? cout<<"3: Show Popular Recipes"<<endl : cout<<"3: Buy Popular Recipe Books"<<endl ;
-        cout<<"4: Change name of RecipeBook"
+        allRecipes.isRecipesBought() ? cout<<"\n3: Show Popular Recipes" : cout<<"\n3: Buy Popular Recipe Books";
+        cout<<"\n4: Change name of RecipeBook"
               "\n5: Make Copy RecipeBook"
               "\n6: Show Copy RecipeBook"
               "\n7: Compare RecipeBooks"
@@ -59,8 +64,7 @@ int main() {
                 allRecipes.isRecipesBought() ? allRecipes.getBooks() : allRecipes.actionBuyBook();
                 break;
             case 4:
-                cout<<"Enter new name: ";
-                cin >> HowToCook;
+                setNameToBook(HowToCook);
                 break;
             case 5:
                 CopyBook = HowToCook;
