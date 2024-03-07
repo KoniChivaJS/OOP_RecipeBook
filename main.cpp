@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Dish.h"
-#include "RecipeBook.h"
+#include "OwnRecipeBook.h"
 #include "PopularRecipeBooks.h"
 #include <string>
 using namespace std;
 
-void makeNewDish(RecipeBook &HowToCook){
+void makeNewDish(OwnRecipeBook &HowToCook){
     string name,type,author,recipe,ingredients;
 
     cout<<"Enter name: ";
@@ -28,8 +28,8 @@ void makeNewDish(RecipeBook &HowToCook){
 
 
 int main() {
-    RecipeBook HowToCook("HowToCook",{});
-    RecipeBook CopyBook(HowToCook);
+    OwnRecipeBook HowToCook("HowToCook", {});
+    OwnRecipeBook CopyBook(HowToCook);
     PopularRecipeBooks allRecipes("100BooksList",99,false,
                                  {"La Pizzas - `link`","Baguettes - `link`","National Dishes - `link`","100 Types of pasta - `link`"},
                                  "Antonio Prip.");
