@@ -15,6 +15,15 @@ void RecipeBook::setName(string &name) {
     this->name = name;
 }
 
+string RecipeBook::getAuthor() const {
+    return this->author;
+}
+
+void RecipeBook::setAuthor(string &author) {
+    this->author = author;
+}
+
+
 void RecipeBook::setPrice(int price) {
     this->price = price;
 }
