@@ -25,11 +25,19 @@ void makeNewDish(OwnRecipeBook &HowToCook){
     HowToCook.setDish(name,type,author,recipe,ingredients);
 
 }
-void setNameToBook(OwnRecipeBook& HowToCook){
-    string newName;
+void changeDescription(OwnRecipeBook& HowToCook){
+    string newName,newAuthor;
+    int price = 0;
     cout<<"Enter new name: ";
-    cin >> newName;
+    cin>>newName;
+    cout<<"Enter an author: ";
+    cin>>newAuthor;
+    cout<<"Enter a price: ";
+    cin>>price;
+
     HowToCook.setName(newName);
+    HowToCook.setAuthor(newAuthor);
+    HowToCook.setPrice(price);
 }
 
 int main() {
@@ -45,11 +53,12 @@ int main() {
         cout<<"1: Make New Dish"
               "\n2: Get dishes";
         allRecipes.isRecipesBought() ? cout<<"\n3: Show Popular Recipes" : cout<<"\n3: Buy Popular Recipe Books";
-        cout<<"\n4: Change name of RecipeBook"
+        cout<<"\n4: Change Description of own book"
               "\n5: Make Copy RecipeBook"
               "\n6: Show Copy RecipeBook"
               "\n7: Compare RecipeBooks"
-              "\n8: Exit"
+              "\n8: Show info about ur own recipe book"
+              "\n9: Exit"
               "\nChoose option: ";
         cin>>choice;
 
@@ -64,7 +73,7 @@ int main() {
                 allRecipes.isRecipesBought() ? allRecipes.getBooks() : allRecipes.actionBuyBook();
                 break;
             case 4:
-                setNameToBook(HowToCook);
+                changeDescription(HowToCook);
                 break;
             case 5:
                 CopyBook = HowToCook;
@@ -76,6 +85,9 @@ int main() {
                 CopyBook == HowToCook ? cout<<"The Books are Similar"<<endl : cout<<"The Books are Diffetent"<<endl;
                 break;
             case 8:
+                HowToCook.showInfo();
+                break;
+            case 9:
                 whileWorking = false;
                 break;
             default:
