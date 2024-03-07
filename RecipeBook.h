@@ -21,6 +21,7 @@ public:
     string getAuthor() const;
     int getPrice() const;
     void setPrice(int price);
+    RecipeBook(RecipeBook& other);
     RecipeBook& operator = (RecipeBook &other);
     ~RecipeBook();
 };

@@ -99,3 +99,8 @@ ostream &operator<<(ostream &output, OwnRecipeBook &p) {
     output<<"\nWelcome to "<<p.getName()<<endl;
     return output;
 }
+
+OwnRecipeBook::OwnRecipeBook(OwnRecipeBook &other)
+    : RecipeBook(other), drinks(other.drinks),food(other.food){
+
+}

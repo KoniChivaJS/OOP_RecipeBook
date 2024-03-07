@@ -45,3 +45,8 @@ RecipeBook &RecipeBook::operator=(RecipeBook &other) {
 RecipeBook::~RecipeBook() {
 
 }
+
+RecipeBook::RecipeBook(RecipeBook &other)
+    :name(other.name),author(other.author),price(other.price){
+
+}
