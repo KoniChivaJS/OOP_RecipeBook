@@ -18,7 +18,7 @@ public:
     string getName() const;
     void setName(string& name);
     void setAuthor(string& author);
-    virtual string getAuthor() const;
+    virtual string getAuthor() const = 0;
     virtual float getPrice() const;
     void setPrice(int price);
     RecipeBook(RecipeBook& other);
