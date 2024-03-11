@@ -15,6 +15,7 @@ private:
 public:
     void getBooks() const;
     virtual float getPrice() const;
+    virtual string getAuthor() const;
     bool isRecipesBought() const;
     void actionBuyBook();
     PopularRecipeBooks(string newName = "Unknown",

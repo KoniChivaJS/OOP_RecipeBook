@@ -52,3 +52,7 @@ PopularRecipeBooks::~PopularRecipeBooks() {
 float PopularRecipeBooks::getPrice() const {
     return RecipeBook::getPrice() * 1.25;
 }
+
+string PopularRecipeBooks::getAuthor() const {
+    return RecipeBook::getAuthor();
+}
