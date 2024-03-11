@@ -28,7 +28,7 @@ void RecipeBook::setPrice(int price) {
     this->price = price;
 }
 
-int RecipeBook::getPrice() const {
+float RecipeBook::getPrice() const {
     return this->price;
 }
 

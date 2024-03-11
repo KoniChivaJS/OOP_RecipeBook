@@ -18,8 +18,8 @@ public:
     string getName() const;
     void setName(string& name);
     void setAuthor(string& author);
-    string getAuthor() const;
-    int getPrice() const;
+    virtual string getAuthor() const;
+    virtual float getPrice() const;
     void setPrice(int price);
     RecipeBook(RecipeBook& other);
     RecipeBook& operator = (RecipeBook &other);
