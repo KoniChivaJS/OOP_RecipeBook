@@ -15,7 +15,7 @@ private:
     vector<Dish> food;
 public:
     void getDishes() const;
-
+    virtual string getAuthor() const;
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
