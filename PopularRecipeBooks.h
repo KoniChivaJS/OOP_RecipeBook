@@ -14,6 +14,7 @@ private:
     vector<string> books;
 public:
     void getBooks() const;
+    virtual float getPrice() const;
     bool isRecipesBought() const;
     void actionBuyBook();
     PopularRecipeBooks(string newName = "Unknown",

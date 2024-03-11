@@ -18,7 +18,7 @@ bool PopularRecipeBooks::isRecipesBought() const {
 void PopularRecipeBooks::actionBuyBook() {
     int choice;
     cout<<"\nHi! Do you want to buy my book? (by "<<getAuthor()<<" )";
-    cout<<"\nI`ll cost: "<<getPrice()<<" грн. "<<endl;
+    cout<<"\nIt`ll cost: "<<getPrice()<<" грн. "<<endl;
     cout<<"\nSubmit purchase: (0 - leave it, 1 - buy): ";
     cin>>choice;
     switch (choice) {
@@ -47,4 +47,8 @@ PopularRecipeBooks::PopularRecipeBooks(string newName,int newPrice, bool boughtS
 
 PopularRecipeBooks::~PopularRecipeBooks() {
 
+}
+
+float PopularRecipeBooks::getPrice() const {
+    return RecipeBook::getPrice() * 1.25;
 }
