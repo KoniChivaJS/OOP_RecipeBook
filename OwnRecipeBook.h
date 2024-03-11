@@ -9,7 +9,7 @@
 #include "Dish.h"
 #include "RecipeBook.h"
 using namespace std;
-class OwnRecipeBook : public RecipeBook{
+class OwnRecipeBook final : public RecipeBook{
 private:
     vector<Dish> drinks;
     vector<Dish> food;
