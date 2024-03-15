@@ -19,12 +19,12 @@ public:
     string getName() const override final;
     void setName(string& name);
     void setAuthor(string& author);
-    string getAuthor() const override final;
+    virtual string getAuthor() const override;
     int getPrice() const override final;
     void setPrice(int price);
     RecipeBook(RecipeBook& other);
     RecipeBook& operator = (RecipeBook &other);
-    ~RecipeBook();
+    virtual ~RecipeBook();
 };
 
 

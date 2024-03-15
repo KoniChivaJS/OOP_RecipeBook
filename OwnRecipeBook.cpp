@@ -110,3 +110,7 @@ OwnRecipeBook::OwnRecipeBook(OwnRecipeBook &other)
 
 }
 
+string OwnRecipeBook::getAuthor() const {
+    return "It`s your own RecipeBook";
+}
+

@@ -15,7 +15,7 @@ private:
     vector<Dish> food;
 public:
     void getDishes() const;
-
+    string getAuthor() const override;
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
@@ -30,7 +30,7 @@ public:
                   vector<Dish> food = {},
                   string newAuthor = "Unknown",
                   int newPrice = 0);
-    ~OwnRecipeBook();
+    virtual ~OwnRecipeBook();
 };
 
 
