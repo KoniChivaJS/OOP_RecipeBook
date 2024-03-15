@@ -12,4 +12,5 @@ add_executable(lab2_1 main.cpp
         PopularRecipeBooks.h
         RecipeBook.cpp
         RecipeBook.h
+        IBook.h
 )
