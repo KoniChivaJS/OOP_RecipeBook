@@ -40,16 +40,21 @@ void changeDescription(OwnRecipeBook& HowToCook){
     HowToCook.setPrice(price);
 }
 
+void showBookName(RecipeBook &book){
+    cout<<"Welcome to: "<<book.getName()<<endl;
+}
+
 int main() {
     OwnRecipeBook HowToCook("HowToCook", {});
     OwnRecipeBook CopyBook(HowToCook);
     PopularRecipeBooks allRecipes("100BooksList",99,false,
                                  {"La Pizzas - `link`","Baguettes - `link`","National Dishes - `link`","100 Types of pasta - `link`"},
                                  "Antonio Prip.");
+
     bool whileWorking = true;
     while (whileWorking){
         int choice = 0;
-        cout<<HowToCook<<endl;
+        showBookName(HowToCook);
         cout<<"1: Make New Dish"
               "\n2: Get dishes";
         allRecipes.isRecipesBought() ? cout<<"\n3: Show Popular Recipes" : cout<<"\n3: Buy Popular Recipe Books";

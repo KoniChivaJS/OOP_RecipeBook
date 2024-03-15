@@ -48,3 +48,4 @@ PopularRecipeBooks::PopularRecipeBooks(string newName,int newPrice, bool boughtS
 PopularRecipeBooks::~PopularRecipeBooks() {
 
 }
+
