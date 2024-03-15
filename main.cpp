@@ -48,9 +48,8 @@ int main() {
     OwnRecipeBook HowToCook("HowToCook", {});
     OwnRecipeBook CopyBook(HowToCook);
     PopularRecipeBooks allRecipes("100BooksList",99,false,
-                                 {"La Pizzas - `link`","Baguettes - `link`","National Dishes - `link`","100 Types of pasta - `link`"},
-                                 "Antonio Prip.");
-
+                                                    {"La Pizzas - `link`","Baguettes - `link`","National Dishes - `link`","100 Types of pasta - `link`"},
+                                                    "Aleg Tenet");
     bool whileWorking = true;
     while (whileWorking){
         int choice = 0;

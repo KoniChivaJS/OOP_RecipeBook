@@ -15,6 +15,7 @@ private:
 public:
     void getBooks() const;
     bool isRecipesBought() const;
+    string getAuthor() const override;
     void actionBuyBook();
     PopularRecipeBooks(string newName = "Unknown",
             int newPrice = 0,

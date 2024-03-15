@@ -49,3 +49,6 @@ PopularRecipeBooks::~PopularRecipeBooks() {
 
 }
 
+string PopularRecipeBooks::getAuthor() const {
+    return "Author of this popular Book is: " + RecipeBook::getAuthor();
+}
