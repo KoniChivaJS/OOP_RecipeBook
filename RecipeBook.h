@@ -6,8 +6,9 @@
 #define LAB2_1_RECIPEBOOK_H
 #include <string>
 #include <vector>
+#include "IBook.h"
 using namespace std;
-class RecipeBook {
+class RecipeBook : public IBook{
 private:
     string name;
     string author;
@@ -15,11 +16,11 @@ private:
 public:
     RecipeBook(string& newName,string& newAuthor,int newPrice);
 
-    string getName() const;
+    string getName() const override;
     void setName(string& name);
     void setAuthor(string& author);
-    string getAuthor() const;
-    int getPrice() const;
+    string getAuthor() const override;
+    int getPrice() const override;
     void setPrice(int price);
     RecipeBook(RecipeBook& other);
     RecipeBook& operator = (RecipeBook &other);

@@ -12,6 +12,5 @@ public:
     string virtual getName() const = 0;
     string virtual getAuthor() const = 0;
     int virtual getPrice() const = 0;
-    
 };
 #endif //LAB2_1_IBOOK_H
