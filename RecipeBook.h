@@ -16,11 +16,11 @@ private:
 public:
     RecipeBook(string& newName,string& newAuthor,int newPrice);
 
-    string getName() const override;
+    string getName() const override final;
     void setName(string& name);
     void setAuthor(string& author);
-    string getAuthor() const override;
-    int getPrice() const override;
+    string getAuthor() const override final;
+    int getPrice() const override final;
     void setPrice(int price);
     RecipeBook(RecipeBook& other);
     RecipeBook& operator = (RecipeBook &other);
