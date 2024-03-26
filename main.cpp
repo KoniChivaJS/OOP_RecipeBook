@@ -43,8 +43,22 @@ void changeDescription(OwnRecipeBook& HowToCook){
 void showBookName(RecipeBook &book){
     cout<<"Welcome to: "<<book.getName()<<endl;
 }
+bool authorisation(User &user){
+    string login,password;
+    cout<<"Enter Login: ";
+    cin>>login;
+    cout<<"Enter password: ";
+    cin>>password;
 
-bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRecipeBook &CopyBook){
+    if(user.getLogin() == login && user.getPassword() == password){
+        user.setAdmin(true);
+        return true;
+    }
+    return false;
+
+}
+
+bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRecipeBook &CopyBook, User &user){
     int choice = 0;
     showBookName(HowToCook);
     cout<<"1: Get dishes";
@@ -53,7 +67,8 @@ bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRec
           "\n4: Show Copy RecipeBook"
           "\n5: Compare RecipeBooks"
           "\n6: Show info about RecipeBook"
-          "\n7: Exit"
+          "\n7: Log in admin account"
+          "\n8: Exit"
           "\nChoose option: ";
     cin>>choice;
 
@@ -77,6 +92,10 @@ bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRec
             HowToCook.showInfo();
             break;
         case 7:
+            authorisation(user) ? cout<<"\nSuccess" : cout<<"\nError. Wrong password or login" ;
+            cout<<endl;
+            break;
+        case 8:
             return false;
         default:
             cout<<"Wrong choice!"<<endl;
@@ -84,10 +103,11 @@ bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRec
     }
     return true;
 }
-bool adminMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRecipeBook &CopyBook){
+bool adminMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRecipeBook &CopyBook, User &user){
     int choice = 0;
     showBookName(HowToCook);
-    cout<<"1: Get dishes";
+    cout<<"Logged as Admin";
+    cout<<"\n1: Get dishes";
     cout<<"\n2: Make a new Dish"
           "\n3: Show popular recipes"
           "\n4: Change description"
@@ -95,7 +115,8 @@ bool adminMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRe
           "\n6: Show Copy RecipeBook"
           "\n7: Compare RecipeBooks"
           "\n8: Show info about RecipeBook"
-          "\n9: Exit"
+          "\n9: Log out"
+          "\n10: Exit"
           "\nChoose option: ";
     cin>>choice;
 
@@ -125,6 +146,10 @@ bool adminMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRe
             HowToCook.showInfo();
             break;
         case 9:
+            user.setAdmin(false);
+            cout<<"\nLogged out"<<endl;
+            break;
+        case 10:
             return false;
         default:
             cout<<"Wrong choice!"<<endl;
@@ -144,8 +169,8 @@ int main() {
     bool whileWorking = true;
     while (whileWorking){
         whileWorking = user.getAdmin()
-                ? adminMethods(HowToCook,allRecipes,CopyBook)
-                : userMethods(HowToCook,allRecipes,CopyBook);
+                ? adminMethods(HowToCook,allRecipes,CopyBook,user)
+                : userMethods(HowToCook,allRecipes,CopyBook,user);
 
     }
 
