@@ -4,15 +4,28 @@
 
 #include "User.h"
 
-User::User() {
+#include <utility>
 
-}
-
-User::User(string &newLogin, string &newPassword, string &newEmail, bool admin)
-    :login(newLogin),password(newPassword),email(newEmail),isAdmin(admin){
-
-}
+User::User(string newLogin, string newPassword, string newEmail, bool admin)
+    :login{std::move(newLogin)},password{std::move(newPassword)},email{std::move(newEmail)},isAdmin{admin}{}
 
 User::~User() {
 
 }
+
+bool User::getAdmin() {
+    return this->isAdmin;
+}
+
+string User::getLogin() {
+    return this->login;
+}
+
+string User::getPassword() {
+    return this->password;
+}
+
+string User::getEmail() {
+    return this->email;
+}
+

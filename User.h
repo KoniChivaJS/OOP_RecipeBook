@@ -15,8 +15,11 @@ private:
     string email;
     bool isAdmin;
 public:
-    User();
-    User(string &newLogin,string &newPassword,string &newEmail,bool admin);
+    User(string newLogin,string newPassword,string newEmail,bool admin);
+    bool getAdmin();
+    string getLogin();
+    string getPassword();
+    string getEmail();
     ~User();
 };
 
