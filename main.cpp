@@ -63,12 +63,9 @@ bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRec
     showBookName(HowToCook);
     cout<<"1: Get dishes";
     allRecipes.isRecipesBought() ? cout<<"\n2: Show Popular Recipes" : cout<<"\n3: Buy Popular Recipe Books";
-    cout<<"\n3: Make Copy RecipeBook"
-          "\n4: Show Copy RecipeBook"
-          "\n5: Compare RecipeBooks"
-          "\n6: Show info about RecipeBook"
-          "\n7: Log in admin account"
-          "\n8: Exit"
+    cout<<"\n3: Show info about RecipeBook"
+          "\n4: Log in admin account"
+          "\n5: Exit"
           "\nChoose option: ";
     cin>>choice;
 
@@ -80,22 +77,13 @@ bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRec
             allRecipes.isRecipesBought() ? allRecipes.getBooks() : allRecipes.actionBuyBook();
             break;
         case 3:
-            CopyBook = HowToCook;
-            break;
-        case 4:
-            CopyBook.getDishes();
-            break;
-        case 5:
-            CopyBook == HowToCook ? cout<<"The Books are Similar"<<endl : cout<<"The Books are Diffetent"<<endl;
-            break;
-        case 6:
             HowToCook.showInfo();
             break;
-        case 7:
+        case 4:
             authorisation(user) ? cout<<"\nSuccess" : cout<<"\nError. Wrong password or login" ;
             cout<<endl;
             break;
-        case 8:
+        case 5:
             return false;
         default:
             cout<<"Wrong choice!"<<endl;
