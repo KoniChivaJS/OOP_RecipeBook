@@ -20,6 +20,7 @@ public:
     string getLogin();
     string getPassword();
     string getEmail();
+    void setAdmin(bool setter);
     ~User();
 };
 

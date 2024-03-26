@@ -29,3 +29,7 @@ string User::getEmail() {
     return this->email;
 }
 
+void User::setAdmin(bool setter) {
+    this->isAdmin = setter;
+}
+
