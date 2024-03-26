@@ -13,4 +13,6 @@ add_executable(lab2_1 main.cpp
         RecipeBook.cpp
         RecipeBook.h
         IBook.h
+        User.cpp
+        User.h
 )
