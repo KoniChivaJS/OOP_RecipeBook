@@ -84,6 +84,54 @@ bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRec
     }
     return true;
 }
+bool adminMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRecipeBook &CopyBook){
+    int choice = 0;
+    showBookName(HowToCook);
+    cout<<"1: Get dishes";
+    cout<<"\n2: Make a new Dish"
+          "\n3: Show popular recipes"
+          "\n4: Change description"
+          "\n5: Make Copy RecipeBook"
+          "\n6: Show Copy RecipeBook"
+          "\n7: Compare RecipeBooks"
+          "\n8: Show info about RecipeBook"
+          "\n9: Exit"
+          "\nChoose option: ";
+    cin>>choice;
+
+    switch (choice) {
+        case 1:
+            HowToCook.getDishes();
+            break;
+        case 2:
+            makeNewDish(HowToCook);
+            break;
+        case 3:
+            allRecipes.getBooks();
+            break;
+        case 4:
+            changeDescription(HowToCook);
+            break;
+        case 5:
+            CopyBook = HowToCook;
+            break;
+        case 6:
+            CopyBook.getDishes();
+            break;
+        case 7:
+            CopyBook == HowToCook ? cout<<"The Books are Similar"<<endl : cout<<"The Books are Diffetent"<<endl;
+            break;
+        case 8:
+            HowToCook.showInfo();
+            break;
+        case 9:
+            return false;
+        default:
+            cout<<"Wrong choice!"<<endl;
+            break;
+    }
+    return true;
+}
 
 int main() {
     OwnRecipeBook HowToCook("HowToCook", {});
@@ -95,7 +143,9 @@ int main() {
 
     bool whileWorking = true;
     while (whileWorking){
-        whileWorking = userMethods(HowToCook,allRecipes,CopyBook);
+        whileWorking = user.getAdmin()
+                ? adminMethods(HowToCook,allRecipes,CopyBook)
+                : userMethods(HowToCook,allRecipes,CopyBook);
 
     }
 
