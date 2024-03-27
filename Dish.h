@@ -7,13 +7,12 @@
 
 using namespace std;
 class Dish {
-private:
+public:
      string name;
      string type;
      string author;
      string recipe;
      string ingredients;
-public:
     void getDish() const ;
     Dish(string newName="None",string newType="Unknown",
          string newAuthor="None", string newRecipe="Unknown",

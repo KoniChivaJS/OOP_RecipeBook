@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -18,35 +19,37 @@ void OwnRecipeBook::getDishes() const{
     cout<<"3: All categories"<<endl;
     cout<<"\nChoose option: ";
     cin>>choice;
+    bool found = false;
     switch (choice) {
         case 1:
-            if(drinks.empty()){
-                cout<<"No dishes in drink category"<<endl;
-                break;
+            for(auto element : this->dishes){
+                if(element.type == "drink"){
+                    element.getDish();
+                    found = true;
+                }
             }
-            for(const auto & drink : drinks){
-                drink.getDish();
+            if(!found){
+                cout<<"\nNo dishes in drink category!"<<endl;
             }
             break;
         case 2:
-            if(food.empty()){
-                cout<<"No dishes in food category"<<endl;
-                break;
+            for(auto element : this->dishes){
+                if(element.type == "food"){
+                    element.getDish();
+                    found = true;
+                }
             }
-            for(const auto & i : food){
-                i.getDish();
+            if(!found){
+                cout<<"\nNo dishes in food category!"<<endl;
             }
             break;
         case 3:
-            if(food.empty() && drinks.empty()){
-                cout<<"No dishes in Recipe Book"<<endl;
-                break;
-            }
-            for(const auto & drink : drinks){
-                drink.getDish();
-            }
-            for(const auto & i : food){
-                i.getDish();
+            if(this->dishes.empty()){
+                cout<<"\nNo dishes found"<<endl;
+            }else{
+                for(auto element : this->dishes){
+                    element.getDish();
+                }
             }
             break;
         default:
@@ -59,12 +62,9 @@ void OwnRecipeBook::setDish(string &setName, string &newType,
                             string &author, string &recipe,
                             string &ingredients) {
     Dish setNewDish(setName,newType,author,recipe,ingredients);
-    if(newType == "drink"){
-        drinks.push_back(setNewDish);
-        cout<<"\nDrink successfully added";
-    }else if(newType == "food"){
-        food.push_back(setNewDish);
-        cout<<"\nFood successfully added";
+    if(newType == "drink" || newType == "food"){
+        this->dishes.push_back(setNewDish);
+        cout<<"\nDish successfully added";
     }else{
         cout<<"\nCategory not found. Error"<<endl;
     }
@@ -75,8 +75,8 @@ void OwnRecipeBook::showInfo() const {
     cout<<"Price: "<<getPrice()<<endl;
 }
 
-OwnRecipeBook::OwnRecipeBook(string newName, vector<Dish> newDrinks, vector<Dish> newFood, string newAuthor,int newPrice)
-    : RecipeBook(newName,newAuthor,newPrice), food(newFood), drinks(newDrinks){}
+OwnRecipeBook::OwnRecipeBook(string newName, vector<Dish> newDishes, string newAuthor,int newPrice)
+    : RecipeBook(newName,newAuthor,newPrice), dishes(newDishes){}
 
 OwnRecipeBook::~OwnRecipeBook() {}
 
@@ -85,15 +85,13 @@ OwnRecipeBook &OwnRecipeBook::operator=(OwnRecipeBook &other) {
         return *this;
     }
     RecipeBook::operator=(other);
-    this->food = other.food;
-    this->drinks = other.drinks;
+    this->dishes = other.dishes;
     return *this;
 }
 
 bool OwnRecipeBook::operator==(OwnRecipeBook &other) {
     if(getName() == other.getName()
-       && this->drinks.size() == other.drinks.size()
-       && this->food.size() == other.food.size()){
+       && this->dishes.size() == other.dishes.size()){
         return true;
     }
     return false;
@@ -101,16 +99,12 @@ bool OwnRecipeBook::operator==(OwnRecipeBook &other) {
 }
 
 ostream &operator<<(ostream &output, OwnRecipeBook &p) {
-    output<<"\nWelcome to "<<p.getName()<<endl;
+    output<<"\n\nWelcome to "<<p.getName()<<endl;
     return output;
 }
 
 OwnRecipeBook::OwnRecipeBook(OwnRecipeBook &other)
-    : RecipeBook(other), drinks(other.drinks),food(other.food){
+    : RecipeBook(other), dishes(other.dishes){
 
-}
-
-string OwnRecipeBook::getAuthor() const {
-    return "It`s your own RecipeBook";
 }
 

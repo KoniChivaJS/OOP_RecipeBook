@@ -11,11 +11,9 @@
 using namespace std;
 class OwnRecipeBook : public RecipeBook{
 private:
-    vector<Dish> drinks;
-    vector<Dish> food;
+    vector<Dish> dishes;
 public:
     void getDishes() const;
-    string getAuthor() const override;
     void setDish(string &setName,string &newType,
                  string &author, string &recipe,
                  string &ingredients);
@@ -24,12 +22,12 @@ public:
     OwnRecipeBook& operator = (OwnRecipeBook& other);
     bool operator ==(OwnRecipeBook& other);
     friend ostream &operator << (ostream &output, OwnRecipeBook &p);
-
+    void saveData()const;
     OwnRecipeBook(string newName = "Unknown",
-                  vector<Dish> drinks = {},
-                  vector<Dish> food = {},
+                  vector<Dish> newDishes = {},
                   string newAuthor = "Unknown",
                   int newPrice = 0);
+
     virtual ~OwnRecipeBook();
 };
 

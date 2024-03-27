@@ -4,6 +4,7 @@
 #include "PopularRecipeBooks.h"
 #include <string>
 #include "User.h"
+#include <fstream>
 using namespace std;
 
 void makeNewDish(OwnRecipeBook &HowToCook){
@@ -62,7 +63,7 @@ bool userMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRec
     int choice = 0;
     showBookName(HowToCook);
     cout<<"1: Get dishes";
-    allRecipes.isRecipesBought() ? cout<<"\n2: Show Popular Recipes" : cout<<"\n3: Buy Popular Recipe Books";
+    allRecipes.isRecipesBought() ? cout<<"\n2: Show Popular Recipes" : cout<<"\n2: Buy Popular Recipe Books";
     cout<<"\n3: Show info about RecipeBook"
           "\n4: Log in admin account"
           "\n5: Exit"
@@ -138,6 +139,7 @@ bool adminMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRe
             cout<<"\nLogged out"<<endl;
             break;
         case 10:
+
             return false;
         default:
             cout<<"Wrong choice!"<<endl;
@@ -161,6 +163,7 @@ int main() {
                 : userMethods(HowToCook,allRecipes,CopyBook,user);
 
     }
+
 
     return 0;
 }
