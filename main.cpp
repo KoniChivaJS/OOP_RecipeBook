@@ -139,7 +139,7 @@ bool adminMethods(OwnRecipeBook &HowToCook,PopularRecipeBooks &allRecipes, OwnRe
             cout<<"\nLogged out"<<endl;
             break;
         case 10:
-
+            HowToCook.saveData();
             return false;
         default:
             cout<<"Wrong choice!"<<endl;

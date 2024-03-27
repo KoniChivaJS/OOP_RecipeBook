@@ -108,3 +108,16 @@ OwnRecipeBook::OwnRecipeBook(OwnRecipeBook &other)
 
 }
 
+void OwnRecipeBook::saveData() const {
+    ofstream fout;
+    fout.open("database.txt");
+    
+    if(!fout.is_open()){
+        cout<<"\nError";
+    }else{
+        for(auto element : dishes){
+            fout.write((char*)&element, sizeof(Dish));
+        }
+    }
+    fout.close();
+}
